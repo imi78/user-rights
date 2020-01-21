@@ -1,0 +1,37 @@
+/ you could write a function getUserPermission($strUsername)
+// which returns a permission number, say 10 (1010 in binary)
+// which means he/she can create/update but not read/delete
+$userPermissions = getUserPermission("TedWong");
+
+$permissionCreate = 8; // 1000;
+$permissionRead   = 4; // 0100;
+$permissionUpdate = 2; // 0010;
+$permissionDelete = 1; // 0001;
+
+if ($userPermissions | $permissionCreate)
+{
+  //user has permission to create
+}
+
+if ($userPermissions | $permissionRead)
+{
+  //User has permission to read
+}
+
+if (!($userPermissions | $permissionDelete))
+{
+  //User doesn't have permission to delete
+}
+
+if ($userPermissions | $permissionUpdate &&
+    $userPermissions | $permissionCreate)
+{
+  //User has permission to create and update.
+}
+
+//Post
+//        Guest User                      Admin 
+//Create    N     Y                         Y
+//Read      Y     Y                         Y
+//Update    N   Their own post ONLY        All
+//Delete    N     N (yes, user can't del)   Y
