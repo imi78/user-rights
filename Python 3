@@ -1,0 +1,26 @@
+def User(permission):
+    Create = 8
+    Read = 4
+    Write = 2
+    Delete = 1
+    
+    if permission == 8: # 1000
+        print ('You are granted to Create')
+        return Create
+        
+    if permission == 4: # 0100
+        print ('You are granted to Read')
+        return Read 
+        
+    if permission == 2:
+        print ('You are granted to Write')
+        return Write # 0010
+        
+    if permission == 1:
+        print ('You are granted to Delete')
+        return Delete # 0001
+    
+print (User (0b1000))
+print (User (0b0100))
+print (User (0b0010))
+print (User (0b0001))
