@@ -1,11 +1,18 @@
 # how to check values in Dict.
 def User(permission):
+    dict = {'Create':8, 'Read':4, 'Write':2, 'Delete':1} 
+    try:
+        permission == int
+    except: raise TypeError('Only integers allowed')        
     
-    dict = {'Create':8, 'Read':4, 'Write':2, 'Delete':1}    
     if permission in dict.values(): # checks values (8, 4 , 2, 1)
-        print (permission)
         
-User (int(input()))
+        return([k for k,v in dict.items() if v == permission]) # iterate through dict 
+        return k # and returns the key from the given value
+    else:
+        raise ValueError('Only 8,4,2,1 allowed')
+
+User (input())
 
 # how to check keys in Dict.
 def User(permission):
