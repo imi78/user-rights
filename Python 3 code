@@ -1,25 +1,38 @@
 # how to check values in Dict.
 def User(permission):
+
     dict = {'Create':8, 'Read':4, 'Write':2, 'Delete':1} 
+
     try:
-        permission == int
-    except: raise TypeError('Only integers allowed')        
+        permission = int(permission)
+    except: print ('Only integers allowed')
+    #raise TypeError('Only integers allowed')        
     
     if permission in dict.values(): # checks values (8, 4 , 2, 1)
-        
-        return([k for k,v in dict.items() if v == permission]) # iterate through dict 
-        return k # and returns the key from the given value
+    
+        x = ([k for k,v in dict.items() if v == permission]) # iterate through dict 
+        # and returns the key from the given value
+        print (f"You have {x[0]} permission") # x is a list witho only one position x[0]
+
     else:
-        raise ValueError('Only 8,4,2,1 allowed')
+
+        print ('Only 8,4,2,1 allowed') 
+        #raise ValueError('Only 8,4,2,1 allowed')
 
 User (input())
 
 # how to check keys in Dict.
+
 def User(permission):
 
-    dict = {'Create':8, 'Read':4, 'Write':2, 'Delete':1}    
+    permission = permission.lower() # change 
+    dict = {'create':8, 'read':4, 'write':2, 'delete':1}    
+
     if permission in dict: # checks keys (Create, Read, etc.)
-        print (permission)
+        print (f"You have a permission to {'''permission.capitalize()'''}")
         
+    else:
+        print ("You don't have a permission")
+
 
 User (input())
