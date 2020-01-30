@@ -23,16 +23,20 @@ User (input())
 
 # how to check keys in Dict.
 
+# how to check keys in Dict.
+
 def User(permission):
 
-    permission = permission.lower() # change 
+    permission = permission.lower() # changes the input to lower case letters for check if input is case sensitive
     dict = {'create':8, 'read':4, 'write':2, 'delete':1}    
 
     if permission in dict: # checks keys (Create, Read, etc.)
-        print (f"You have a permission to {'''permission.capitalize()'''}")
+        print (f"You have a permission to {permission.capitalize()}") # capitalizes the first letter of the permission
         
     else:
-        print ("You don't have a permission")
+        x = (', '.join(str(key) for key, value in dict.items())) # iterates through the dict and returns a string with the values (Create, Read, etc)
+
+        print (f"Permissions are:{x.title()}") # .title - capitalizes every first letter of the returned string.
 
 
 User (input())
