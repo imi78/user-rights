@@ -1,49 +1,32 @@
-read = 0b0001
-write = 0b0010
-delete = 0b0100
-modify = 0b0111
-admin = 0b1111
-
-def Grant_permission(user, permission):
+def Grant_user_rights(user):
+    read = 0b0001
+    write = 0b0010
+    delete = 0b0100
+    modify = 0b1000
+    global permission
     
-    permission = permission.lower() 
     user = user.lower()
-    
-    permission_dict = {'read':1, 'write':2, 'delete':4, 'modify': 7}
     user_list = ['guest', 'user', 'moderator', 'admin']
-    
-    if permission in permission_dict:
-        pass #print (f"You have a permission to {permission.capitalize()}")
-   
-    else:
-        x = (', '.join(str(key) for key, value in dict.items())) 
-        print (f"Please enter valid user permission")
-        print (f"User permissions are: {x.title()}")
-        
-    if user in user_list:
-        pass
     
     if user == 'guest':
         permission = read
         return permission
-        
+
     if user == 'user':
         permission = read | write
         return permission
-        
+
     if user == 'moderator':
         permission = read | write | delete
         return permission
-        
+
     if user == 'admin':
         permission = read | write | delete | modify
         return permission
-    
-    
         
-Grant_permission ('aDmin', 'Write')
+    else:
+        x = (', '.join(str(value) for value in user_list)) # iterates through list and returns all values in it.
+        print (f'Users on this system are: {x.title()}') # so the values can be printed
 
-# r_w = read | write
-# r_d = read | delete
-# w_d = write | delete
-# r_w_d = read | write | delete
+Grant_user_rights ('AdmIn')
+print (bin(permission))
