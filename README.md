@@ -1,2 +1,1 @@
-# user-rights-using-binary
-how to use binary values as swithes to represent user rights.
+I tried to do some CRUD preliminary code. 
